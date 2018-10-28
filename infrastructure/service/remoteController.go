@@ -1,8 +1,8 @@
 package service
 
 import (
+	"github.com/journerist/drone-backend/core/task"
 	"github.com/pkg/errors"
-	"github.com/sebarthel/waypoint-handler/core/task"
 )
 
 type RemoteController struct {
@@ -14,7 +14,7 @@ func (rt *RemoteController) Init() {
 }
 
 func (rt *RemoteController) PauseExecution() error {
-	if(rt.paused) {
+	if rt.paused {
 		return errors.New("Remote controller is already paused")
 	}
 	rt.paused = true
@@ -23,7 +23,7 @@ func (rt *RemoteController) PauseExecution() error {
 }
 
 func (rt *RemoteController) ContinueExecution() error {
-	if(!rt.paused) {
+	if !rt.paused {
 		return errors.New("Remote controller is not paused")
 	}
 	rt.paused = false
@@ -32,7 +32,7 @@ func (rt *RemoteController) ContinueExecution() error {
 }
 
 func (rt *RemoteController) ExecuteTask(task task.Task) error {
-	if(!rt.paused) {
+	if !rt.paused {
 		return errors.New("Can not execute task because Execution is not paused")
 	} else {
 		task.Execute()
@@ -40,4 +40,3 @@ func (rt *RemoteController) ExecuteTask(task task.Task) error {
 
 	return nil
 }
-

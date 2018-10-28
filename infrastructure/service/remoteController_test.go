@@ -1,8 +1,9 @@
 package service
 
 import (
-	"github.com/sebarthel/waypoint-handler/core/task"
 	"testing"
+
+	"github.com/journerist/drone-backend/core/task"
 )
 
 func getRemoteController() *RemoteController {
@@ -48,7 +49,7 @@ func (mt *mockTask) Execute() {
 
 func TestCommandGetsExecuted(t *testing.T) {
 	remoteController := getRemoteController()
-	mockTask := mockTask{executed:false}
+	mockTask := mockTask{executed: false}
 
 	remoteController.PauseExecution()
 	err := remoteController.ExecuteTask(&mockTask)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/sebarthel/waypoint-handler/infrastructure/injector-gen"
+	"github.com/journerist/drone-backend/infrastructure/injector-gen"
 )
 
 func main() {

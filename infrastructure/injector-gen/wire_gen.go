@@ -6,8 +6,8 @@
 package injector_gen
 
 import (
-	"github.com/sebarthel/waypoint-handler/infrastructure/provider"
-	"github.com/sebarthel/waypoint-handler/infrastructure/service"
+	"github.com/journerist/drone-backend/infrastructure/provider"
+	"github.com/journerist/drone-backend/infrastructure/service"
 )
 
 // Injectors from injection.go:

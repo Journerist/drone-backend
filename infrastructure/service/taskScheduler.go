@@ -1,10 +1,11 @@
 package service
 
 import (
-	"github.com/sebarthel/waypoint-handler/core/task"
 	"log"
 	"reflect"
 	"time"
+
+	"github.com/journerist/drone-backend/core/task"
 )
 
 type TaskScheduler struct {

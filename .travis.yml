@@ -1,6 +1,24 @@
+sudo: required
+services:
+  - docker
+
+env:
+  global:
+    - IMAGE_NAME=journerist/drone-backend
+
 language: go
 go:
     - "1.10"
 script:
     - go test -v
     - go build
+
+before_deploy:
+#- env GOOS=linux GOARCH=arm go build -o drone-backend -v ./main/main.go
+- docker build --tag "${IMAGE_NAME}:latest" .
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest"
+  on:
+    branch: master

@@ -6,8 +6,8 @@
 package injector_gen
 
 import (
-	"github.com/journerist/drone-backend/infrastructure/provider"
-	"github.com/journerist/drone-backend/infrastructure/service"
+	"github.com/Journerist/drone-backend/infrastructure/provider"
+	"github.com/Journerist/drone-backend/infrastructure/service"
 )
 
 // Injectors from injection.go:

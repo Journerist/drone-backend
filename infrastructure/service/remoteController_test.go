@@ -3,7 +3,7 @@ package service
 import (
 	"testing"
 
-	"github.com/journerist/drone-backend/core/task"
+	"github.com/Journerist/drone-backend/core/task"
 )
 
 func getRemoteController() *RemoteController {

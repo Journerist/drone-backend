@@ -4,9 +4,9 @@
 package injector
 
 import (
+	"github.com/Journerist/drone-backend/infrastructure/provider"
+	"github.com/Journerist/drone-backend/infrastructure/service"
 	"github.com/google/go-cloud/wire"
-	"github.com/journerist/drone-backend/infrastructure/provider"
-	"github.com/journerist/drone-backend/infrastructure/service"
 )
 
 func InitializeTaskScheduler() (service.TaskScheduler, error) {

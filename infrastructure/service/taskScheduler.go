@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/journerist/drone-backend/core/task"
+	"github.com/Journerist/drone-backend/core/task"
 )
 
 type TaskScheduler struct {

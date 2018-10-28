@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/journerist/drone-backend/infrastructure/injector-gen"
+	"github.com/Journerist/drone-backend/infrastructure/injector-gen"
 )
 
 func main() {

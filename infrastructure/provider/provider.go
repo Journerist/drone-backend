@@ -1,9 +1,9 @@
 package provider
 
 import (
+	"github.com/Journerist/drone-backend/core/task"
+	"github.com/Journerist/drone-backend/infrastructure/service"
 	"github.com/google/go-cloud/wire"
-	"github.com/journerist/drone-backend/core/task"
-	"github.com/journerist/drone-backend/infrastructure/service"
 )
 
 func ProvideTaskRepository() (task.TaskRepository, error) {

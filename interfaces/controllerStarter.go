@@ -1,10 +1,10 @@
 package interfaces
 
 type ControllerStarter struct {
-	commandController CommandController
+	commandController *CommandController
 }
 
-func (c *ControllerStarter) Init(commandController CommandController) {
+func (c *ControllerStarter) Init(commandController *CommandController) {
 	c.commandController = commandController
 }
 

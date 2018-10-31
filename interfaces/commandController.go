@@ -6,11 +6,11 @@ import (
 )
 
 type CommandController struct {
-	commandRepository command.CommandRepository
+	commandRepository *command.CommandRepository
 	app   *iris.Application
 }
 
-func (c *CommandController) Init(app *iris.Application, repository command.CommandRepository) {
+func (c *CommandController) Init(app *iris.Application, repository *command.CommandRepository) {
 	c.app = app
 	c.commandRepository = repository
 }
@@ -23,6 +23,7 @@ func (c *CommandController) Start() {
 }
 
 func (c *CommandController) readAll(ctx iris.Context) {
+	ctx.Header("Access-Control-Allow-Origin", "*")
 	commands := make([]CommandRO, 1)
 	commands[0] = CommandRO{
 		"START_MOTOR",
@@ -34,6 +35,7 @@ func (c *CommandController) readAll(ctx iris.Context) {
 }
 
 func (c *CommandController) executeCommand(ctx iris.Context) {
+	ctx.Header("Access-Control-Allow-Origin", "*")
 	commandId := ctx.Params().Get("id")
 
 	commandToExecute,_ := c.commandRepository.Find(commandId)

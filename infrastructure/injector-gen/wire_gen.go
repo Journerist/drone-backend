@@ -8,6 +8,7 @@ package injector_gen
 import (
 	"github.com/Journerist/drone-backend/infrastructure/provider"
 	"github.com/Journerist/drone-backend/infrastructure/service"
+	"github.com/journerist/drone-backend/interfaces"
 )
 
 // Injectors from injection.go:
@@ -22,4 +23,24 @@ func InitializeTaskScheduler() (service.TaskScheduler, error) {
 		return service.TaskScheduler{}, err
 	}
 	return taskScheduler, nil
+}
+
+func InitializeControllerStarter() (interfaces.ControllerStarter, error) {
+	application, err := provider.ProvideIrisApp()
+	if err != nil {
+		return interfaces.ControllerStarter{}, err
+	}
+	commandRepository, err := provider.ProvideCommandRepository()
+	if err != nil {
+		return interfaces.ControllerStarter{}, err
+	}
+	commandController, err := provider.ProvideCommandController(application, commandRepository)
+	if err != nil {
+		return interfaces.ControllerStarter{}, err
+	}
+	controllerStarter, err := provider.ProvideControllerStarter(commandController)
+	if err != nil {
+		return interfaces.ControllerStarter{}, err
+	}
+	return controllerStarter, nil
 }

@@ -6,5 +6,8 @@ import (
 
 func main() {
 	taskScheduler, _ := injector_gen.InitializeTaskScheduler()
-	taskScheduler.Start()
+	go taskScheduler.Start()
+
+	controllerStarter, _ := injector_gen.InitializeControllerStarter()
+	controllerStarter.StartAllController()
 }

@@ -4,7 +4,7 @@ services:
 
 env:
   global:
-    - IMAGE_NAME=journerist/drone-backend
+    - IMAGE_NAME=Journerist/drone-backend
 
 language: go
 go:

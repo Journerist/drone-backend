@@ -1,22 +1,20 @@
 package service
 
 import (
+	"github.com/Journerist/drone-backend/core/task"
 	"log"
 	"reflect"
-	"time"
-
-	"github.com/Journerist/drone-backend/core/task"
 )
 
 type TaskScheduler struct {
-	taskRepository task.TaskRepository
+	taskRepository task.Repository
 }
 
-func (ts TaskScheduler) Init(taskRepository task.TaskRepository) {
+func (ts *TaskScheduler) Init(taskRepository task.Repository) {
 	ts.taskRepository = taskRepository
 }
 
-func (ts TaskScheduler) Start() {
+func (ts *TaskScheduler) Start() {
 	log.Println("Start Task-Scheduler")
 	log.Println("Load first task")
 
@@ -27,7 +25,6 @@ func (ts TaskScheduler) Start() {
 		println("Start " + taskName)
 		element.Execute()
 		println("End " + taskName)
-		time.Sleep(time.Second * 1)
 	}
 }
 
